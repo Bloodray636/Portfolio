@@ -1,0 +1,58 @@
+@import "config.sass"
+
+%btn
+    .btn-block
+        .btn
+            padding: 0px $p * 10px!important
+            border-radius: $radius!important
+            height: 44px
+            transition: .5s ease
+
+%btn-second
+    .btn-block
+        .btn.btn-second
+            padding: 0px $p * 9px!important
+            border-radius: $radius!important
+            height: 44px
+            position: relative
+            overflow: hidden
+            z-index: 1
+            outline: none!important
+            &:focus
+                outline: 2px solid transparent
+            &::before
+                content: ""
+                position: absolute
+                top: 0
+                right: 100%
+                width: 100%
+                height: 110%
+                z-index: -1
+                opacity: 0
+                transition: .3s ease
+            &:hover::before
+                right: 0
+                opacity: 1
+                transition: .3s ease
+            &:hover
+                transition: .5s ease
+
+%thumb
+    position: absolute
+    content: ""
+    width: 100%
+    height: 100%
+    will-change: border-radius, transform, opacity
+    display: block
+    z-index: -1
+    margin: auto!important
+    animation: sliderShape 5s linear infinite
+
+%rotate
+    @keyframes gradient
+        0%
+            transform: rotate(0deg)
+        50%
+            transform: rotate(180deg)
+        100%
+            transform: rotate(360deg)

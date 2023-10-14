@@ -1,0 +1,42 @@
+@import "config.sass"
+    
+h2, h3, h4, h5, h6, a, p, span, label, input, textarea, li, ul, ol
+    color: $white!important
+
+body
+    background: $black!important
+
+.btn
+    color: $white!important
+    background: $linear
+    &:hover
+        box-shadow: $shadow
+
+.btn.btn-second
+    color: $white !important
+    background: $linear-second
+    border: $border
+    &::before
+        background: $linear-second-hover
+    &:hover
+        box-shadow: $shadow
+
+.navbar
+    .nav-link
+        color: $white
+        &:hover
+            color: $white
+        &::before
+            background: $linear
+    .social-icon
+        svg
+            fill: $white
+
+.present
+    .title
+        h1
+            color: $white
+        p
+            color: $white
+    .thumb .slider-thumb::before, .thumbs .slider-thumb-small::before
+        background: $linear

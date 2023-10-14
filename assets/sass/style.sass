@@ -1,0 +1,184 @@
+@import "fs.sass"
+@import "color.sass"
+@import "config.sass"
+@import "mixin.sass"
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+a
+    text-decoration: none!important
+
+.present, .about, .portfolio, .skills 
+    margin: $m * 24px 0
+
+header
+    margin-top: $m * 4px
+    .navbar
+        .navbar-brand
+            max-height: 43px
+            height: 100%
+            width: 52px
+            max-width: 100%
+        .nav-item
+            margin:0 30px
+            .nav-link
+                &::before
+                    content: ''
+                    position: absolute
+                    width: 100%
+                    height: 2px
+                    border-radius: 4px
+                    bottom: 0
+                    left: 0
+                    transform-origin: right
+                    transform: scaleX(0)
+                    transition: transform .3s ease-in-out
+                    top: 30px!important
+                &:hover::before
+                    transform-origin: left
+                    transform: scaleX(1)
+        .social-icon
+            svg
+                margin: 0px 15px
+                width: 20px
+                height: 20px
+.present
+    .title
+        p
+            margin: $m * 8px 0!important
+    @extend %btn
+    @extend %btn-second
+    .thumb
+        height: 270px
+        @media screen and (max-width: 1199px)
+            &
+                height: 220px
+        @media screen and (max-width: 991px)
+            &
+                height: 150px
+        @media screen and (max-width: 767px)
+            &
+                height: 300px
+        .slider-thumb
+            &::before
+                @extend %thumb
+                left: 0
+                right: 0
+                top: 0
+                max-width: 270px
+                max-height: 270px
+                border-radius: 62% 47% 82% 35% / 45% 45% 80% 66%
+                -webkit-animation: sliderShape 5s linear infinite, gradient 20s linear infinite
+                @extend %rotate
+            @keyframes sliderShape
+                0%,100%
+                    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%
+                    transform: translate3d(0,0,0) rotateZ(0.01deg)
+                34%
+                    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%
+                    transform:  translate3d(0,5px,0) rotateZ(0.01deg)
+                50%
+                    transform: translate3d(0,0,0) rotateZ(0.01deg)
+                67%
+                    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60% 
+                    transform: translate3d(0,-3px,0) rotateZ(0.01deg)      
+    .thumbs
+        height: 15px
+        .slider-thumb-small:first-child
+            &::before
+                @extend %thumb
+                right: 20%
+                top: 0
+                max-width: 15px
+                max-height: 15px
+                border-radius: 50%!important
+                -webkit-animation: gradient 5s linear infinite, slideUpDown 5s ease infinite
+                @extend %rotate
+                @media screen and (max-width: 991px)
+                    & 
+                        right: 0
+        .slider-thumb-small:nth-child(2)
+            &::before
+                @extend %thumb
+                left: -5%
+                top: 0
+                max-width: 15px
+                max-height: 15px
+                border-radius: 50%!important
+                -webkit-animation: gradient 7s linear infinite, slideUpDown 6s ease infinite
+                @extend %rotate
+                @media screen and (max-width: 1016px)
+                    & 
+                        left: -3%
+                @media screen and (max-width: 575px)
+                    & 
+                        left: -1.3%
+        .slider-thumb-small:last-child
+            &::before
+                @extend %thumb
+                right: 38%
+                bottom: 0
+                max-width: 15px
+                max-height: 15px
+                border-radius: 50%!important
+                -webkit-animation: gradient 9s linear infinite, slideUpDown 7s ease infinite
+                @extend %rotate
+                @media screen and (max-width: 1016px)
+                    & 
+                        right: 20%
+                @media screen and (max-width: 1016px)
+                    & 
+                        bottom: -5%
+
+.about
+    .title
+        h2
+            margin-bottom: $m * 8px!important
+    .text-block
+        p
+            margin-bottom: $m * 10px!important
+    .img-block
+        img
+            max-height: 396px
+            height: 100%
+            object-fit: cover
+    @extend %btn
+
+.portfolio
+    .title
+        h2
+            margin-bottom: $m * 12px!important
+    .item-portfolio
+        margin-bottom: $m * 10px
+        .img-block
+            margin-bottom: $m * 6px
+            img
+                max-height: 287px
+                height: 100%
+                object-fit: cover
+                object-position: top
+                border-radius: $radius
+        .text-block
+            h3
+                margin-bottom: $m * 5px!important
+                height: 100%
+                display: -webkit-box
+                -webkit-line-clamp: 1
+                -webkit-box-orient: vertical  
+                overflow: hidden
+            p
+                margin-bottom: $m * 8px!important
+                display: -webkit-box
+                -webkit-line-clamp: 3
+                -webkit-box-orient: vertical  
+                overflow: hidden
+            @extend %btn
+            @extend %btn-second
+
+.skills
+    .title
+        h2
+            margin-bottom: $m * 12px!important
